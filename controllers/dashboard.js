@@ -6,7 +6,7 @@ const dashboard = {
   index(request, response) {
     logger.info("dashboard rendering");
     const viewData = {
-      title: "Template 1 Dashboard",
+      title: "Dashboard - WeatherTop",
     };
     response.render("dashboard", viewData);
   },
