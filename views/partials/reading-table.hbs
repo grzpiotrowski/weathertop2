@@ -1,0 +1,10 @@
+<table class="ui celled table">
+  <thead>
+  {{> reading-header}}
+  </thead>
+  <tbody>
+  {{#each readings}}
+    {{> reading-row code=code temperature=temperature windSpeed=windSpeed pressure=pressure}}
+  {{/each}}
+  </tbody>
+</table>
