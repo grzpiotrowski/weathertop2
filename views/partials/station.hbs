@@ -1,2 +1,3 @@
-{{> station-panel name=name}}
+{{> station-panel name=name code=lastReading.code tempC=lastReading.temperature
+  windBft=lastReading.windSpeed pressure=lastReading.pressure}}
 {{> reading-table readings=readings}}

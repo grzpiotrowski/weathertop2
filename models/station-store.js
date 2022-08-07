@@ -3,10 +3,11 @@
 const _ = require('lodash');
 const JsonStore = require('./json-store');
 const logger = require("../utils/logger");
+const weatherAnalytics = require("../utils/weather-analytics");
 
 const stationStore = {
 
-  store: new JsonStore('./models/station-store.json', { playlistCollection: [] }),
+  store: new JsonStore('./models/station-store.json', { stationCollection: [] }),
   collection: 'stationCollection',
 
   getAllStations() {
@@ -16,6 +17,7 @@ const stationStore = {
   getStation(id) {
     return this.store.findOneBy(this.collection, { id: id });
   },
+
 };
 
 
