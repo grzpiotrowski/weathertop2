@@ -1,5 +1,18 @@
 {{#each stations}}
   <section class="ui stacked segment">
-    {{> station name=name readings=readings}}
+    {{> station-panel
+      name=name
+      codeString=lastReading.codeString
+      tempC=lastReading.temperature
+      tempF=lastReading.temperatureF
+      windBft=lastReading.windSpeedBft
+      pressure=lastReading.pressure
+    }}
+    <div class="ui divider"></div>
+    <a href="/station/{{id}}">
+      <button class="ui icon button">
+        <i class="folder open icon"></i>
+      </button>
+    </a>
   </section>
 {{/each}}

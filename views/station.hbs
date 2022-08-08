@@ -1,0 +1,14 @@
+{{> menu activepagetitle=station.name}}
+
+<section class="ui center aligned middle aligned segment">
+  {{> station-panel
+    name=name
+    codeString=lastReading.codeString
+    tempC=lastReading.temperature
+    tempF=lastReading.temperatureF
+    windBft=lastReading.windSpeedBft
+    pressure=lastReading.pressure
+  }}
+
+  {{> reading-table readings=readings}}
+</section>
