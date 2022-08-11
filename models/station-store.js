@@ -18,6 +18,11 @@ const stationStore = {
     return this.store.findOneBy(this.collection, { id: id });
   },
 
+  addStation(station) {
+    this.store.add(this.collection, station);
+    this.store.save();
+  },
+
   addReading(id, reading) {
     const station = this.getStation(id);
     station.readings.push(reading);

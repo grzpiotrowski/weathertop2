@@ -1,6 +1,7 @@
 'use strict';
 
 const logger = require('../utils/logger');
+const uuid = require('uuid');
 const stationStore = require('../models/station-store');
 const weatherAnalytics = require('../utils/weather-analytics');
 const conversion = require('../utils/conversion');
@@ -10,10 +11,12 @@ const dashboard = {
     logger.info('dashboard rendering');
     let stations = [];
     for (let station of stationStore.getAllStations()) {
-      station.lastReading = weatherAnalytics.getLastReading(station.readings);
-      station.lastReading.temperatureF = conversion.temperatureFahrenheit(station.lastReading.temperature);
-      station.lastReading.codeString = conversion.weatherCodes.get(station.lastReading.code);
-      station.lastReading.windSpeedBft = conversion.kmhToBeaufort(station.lastReading.windSpeed);
+      if (station.readings > 0) {
+        station.lastReading = weatherAnalytics.getLastReading(station.readings);
+        station.lastReading.temperatureF = conversion.temperatureFahrenheit(station.lastReading.temperature);
+        station.lastReading.codeString = conversion.weatherCodes.get(station.lastReading.code);
+        station.lastReading.windSpeedBft = conversion.kmhToBeaufort(station.lastReading.windSpeed);
+      }
       stations.push(station);
     };
 
@@ -22,6 +25,17 @@ const dashboard = {
       stations: stations
     };
     response.render('dashboard', viewData);
+  },
+
+  addStation(request, response) {
+    const newStation = {
+      id: uuid.v1(),
+      name: request.body.name,
+      readings: [],
+    };
+    logger.debug('Creating a new Station', newStation);
+    stationStore.addStation(newStation);
+    response.redirect('/dashboard');
   },
 };
 

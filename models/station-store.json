@@ -37,19 +37,20 @@
           "temperature": "15",
           "windSpeed": "4",
           "windDirection": "98",
-          "pressure": "1002"
+          "pressure": "1002",
+          "temperatureF": 59,
+          "windSpeedBft": 1
         }
       ],
       "lastReading": {
-        "id": "04",
-        "code": 700,
-        "temperature": 8,
-        "windSpeed": 1,
-        "pressure": 1005,
-        "windDirection": 101,
-        "temperatureF": 46.4,
-        "codeString": "Snow",
-        "windSpeedBft": 0
+        "id": "076ac0f0-199d-11ed-ac40-25527f135ae4",
+        "code": "100",
+        "temperature": "15",
+        "windSpeed": "4",
+        "windDirection": "98",
+        "pressure": "1002",
+        "temperatureF": 59,
+        "windSpeedBft": 1
       }
     },
     {
@@ -87,6 +88,11 @@
         "codeString": "Partial Clouds",
         "windSpeedBft": 1
       }
+    },
+    {
+      "id": "8057fdc0-19a2-11ed-ba1f-71b1b23d8191",
+      "name": "Newbridge",
+      "readings": []
     }
   ]
 }
