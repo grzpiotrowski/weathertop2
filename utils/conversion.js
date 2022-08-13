@@ -1,16 +1,20 @@
 "use strict";
 
 const conversion = {
-  weatherCodes: new Map([
-    [100, 'Clear'],
-    [200, 'Partial Clouds'],
-    [300, 'Cloudy'],
-    [400, 'Light Showers'],
-    [500, 'Heavy Showers'],
-    [600, 'Rain'],
-    [700, 'Snow'],
-    [800, 'Thunder']
-  ]),
+
+  currentWeather(code) {
+    const weatherCodes = new Map([
+      [100, 'Clear'],
+      [200, 'Partial Clouds'],
+      [300, 'Cloudy'],
+      [400, 'Light Showers'],
+      [500, 'Heavy Showers'],
+      [600, 'Rain'],
+      [700, 'Snow'],
+      [800, 'Thunder']
+    ]);
+    return weatherCodes.get(code);
+  },
 
   temperatureFahrenheit(tempC) {
     return (tempC * 1.8) + 32;
