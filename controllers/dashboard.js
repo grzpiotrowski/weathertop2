@@ -17,6 +17,8 @@ const dashboard = {
         station.lastReading.codeString = conversion.weatherCodes.get(station.lastReading.code);
         station.lastReading.windSpeedBft = conversion.kmhToBeaufort(station.lastReading.windSpeed);
         station.lastReading.windCompass = conversion.azimuthToCompass(station.lastReading.windDirection);
+        station.lastReading.windChill = weatherAnalytics.calculateWindChill(station.lastReading.temperature,
+          station.lastReading.windSpeed);
       }
       stations.push(station);
     };
