@@ -23,11 +23,11 @@ const station = {
     const stationId = request.params.id;
     const newReading = {
       id: uuid.v1(),
-      code: request.body.code,
-      temperature: request.body.temperature,
-      windSpeed: request.body.windSpeed,
-      windDirection: request.body.windDirection,
-      pressure: request.body.pressure,
+      code: Number(request.body.code),
+      temperature: Number(request.body.temperature),
+      windSpeed: Number(request.body.windSpeed),
+      windDirection: Number(request.body.windDirection),
+      pressure: Number(request.body.pressure),
     };
     stationStore.addReading(stationId, newReading);
     logger.debug('New Reading = ', newReading);
