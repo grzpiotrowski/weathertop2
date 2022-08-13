@@ -11,11 +11,12 @@ const station = {
     const stationId = request.params.id;
     logger.debug('Station id = ', stationId);
     const station = stationStore.getStation(stationId);
-    if (station.readings > 0) {
+    if (station.readings.length > 0) {
       station.lastReading = weatherAnalytics.getLastReading(station.readings);
       station.lastReading.temperatureF = conversion.temperatureFahrenheit(station.lastReading.temperature);
       station.lastReading.codeString = conversion.weatherCodes.get(station.lastReading.code);
       station.lastReading.windSpeedBft = conversion.kmhToBeaufort(station.lastReading.windSpeed);
+      station.lastReading.windCompass = conversion.azimuthToCompass(station.lastReading.windDirection);
     }
     const viewData = {
       title: station.name + ' - WeatherTop',

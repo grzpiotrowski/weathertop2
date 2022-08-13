@@ -44,7 +44,46 @@ const conversion = {
     } else {
       return 12;
     }
+  },
+
+  azimuthToCompass(azimuth) {
+  if (azimuth > 348.75 && azimuth <= 0.0 ||
+    azimuth > 0.0 && azimuth <= 11.25) {
+    return "North";
+  } else if (azimuth > 11.25 && azimuth <= 33.75) {
+    return "North North East";
+  } else if (azimuth > 33.75 && azimuth <= 56.25) {
+    return "North East";
+  } else if (azimuth > 56.25 && azimuth <= 78.75) {
+    return "East North East";
+  } else if (azimuth > 78.75 && azimuth <= 101.25) {
+    return "East";
+  } else if (azimuth > 101.25 && azimuth <= 123.75) {
+    return "East South East";
+  } else if (azimuth > 123.75 && azimuth <= 146.25) {
+    return "South East";
+  } else if (azimuth > 146.25 && azimuth <= 168.75) {
+    return "South South East";
+  } else if (azimuth > 168.75 && azimuth <= 191.25) {
+    return "South";
+  } else if (azimuth > 191.25 && azimuth <= 213.75) {
+    return "South South West";
+  } else if (azimuth > 213.75 && azimuth <= 236.25) {
+    return "South West";
+  } else if (azimuth > 236.25 && azimuth <= 258.75) {
+    return "West South West";
+  } else if (azimuth > 258.75 && azimuth <= 281.25) {
+    return "West";
+  } else if (azimuth > 281.25 && azimuth <= 303.75) {
+    return "West North West";
+  } else if (azimuth > 303.75 && azimuth <= 326.25) {
+    return "North West";
+  } else if (azimuth > 326.25 && azimuth <= 348.75) {
+    return "North North West";
+  } else {
+    return "Unknown";
   }
+}
 
 };
 
