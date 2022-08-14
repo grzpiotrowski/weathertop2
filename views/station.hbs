@@ -3,6 +3,8 @@
 <section class="ui segment">
   {{> station-panel
     name=station.name
+    lat=station.lat
+    lon=station.lon
     codeString=station.lastReading.codeString
     tempC=station.lastReading.temperature
     tempF=station.lastReading.temperatureF

@@ -3,6 +3,8 @@
     {
       "id": "01",
       "name": "Tramore",
+      "lat": 52.149,
+      "lon": -6.994,
       "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
@@ -34,6 +36,8 @@
     {
       "id": "05",
       "name": "Dunmore",
+      "lat": 52.16,
+      "lon": -7.152,
       "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
