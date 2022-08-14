@@ -3,6 +3,7 @@
     {
       "id": "01",
       "name": "Tramore",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
           "id": "02",
@@ -33,6 +34,7 @@
     {
       "id": "05",
       "name": "Dunmore",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
           "id": "06",
