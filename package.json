@@ -1,5 +1,5 @@
 {
-  "name": "glitch-template",
+  "name": "weathertop2",
   "version": "0.0.1",
   "description": "Starter project for learning glitch and express",
   "main": "server.js",
@@ -19,7 +19,7 @@
     "winston": "^3.3.3"
   },
   "repository": {
-    "url": "https://github.com/wit-hdip-comp-sci-2021/glitch-template"
+    "url": "https://github.com/grzpiotrowski/weathertop2"
   },
   "license": "MIT",
   "keywords": [

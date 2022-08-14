@@ -7,12 +7,12 @@ const weatherAnalytics = {
     if (station.readings.length > 0) {
       const lastReading = this.getLastReading(station.readings);
       station.lastReading = lastReading;
-      station.lastReading.temperatureF = conversion.temperatureFahrenheit(station.lastReading.temperature);
+      station.lastReading.temperatureF = conversion.temperatureFahrenheit(station.lastReading.temperature).toFixed(1);
       station.lastReading.codeString = conversion.currentWeather(station.lastReading.code);
       station.lastReading.windSpeedBft = conversion.kmhToBeaufort(station.lastReading.windSpeed);
       station.lastReading.windCompass = conversion.azimuthToCompass(station.lastReading.windDirection);
       station.lastReading.windChill = weatherAnalytics.calculateWindChill(station.lastReading.temperature,
-        station.lastReading.windSpeed);
+        station.lastReading.windSpeed).toFixed(1);
     };
   },
 

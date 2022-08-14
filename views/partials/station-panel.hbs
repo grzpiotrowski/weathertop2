@@ -1,7 +1,7 @@
 <div class="ui five doubling inverted cards">
   {{> card title=name}}
   {{> card title="Weather" valueA=codeString}}
-  {{> card title="Temp" valueA=tempC valueB=tempF unitA="C" unitB="F"}}
-  {{> card title="Wind" valueA=windBft unitA="bft" valueB=windCompass valueC=windChill}}
-  {{> card title="Pressure" valueA=pressure unitA="hPa"}}
+  {{> card title="Temp" valueA=tempC valueB=tempF suffixA="°C" suffixB="°F"}}
+  {{> card title="Wind" valueA=windBft suffixA="bft" valueB=windCompass valueC=windChill prefixC="Feels like: " suffixC=" °C"}}
+  {{> card title="Pressure" valueA=pressure suffixA="hPa"}}
 </div>
