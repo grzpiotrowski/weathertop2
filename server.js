@@ -9,6 +9,9 @@ const fileUpload = require("express-fileupload");
 const app = express();
 app.use(cookieParser());
 const exphbs = require("express-handlebars");
+var helpers = require('handlebars-helpers');
+var string = helpers.string();
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use(fileUpload());
