@@ -2,9 +2,12 @@
   {{> card title=name
     icon="marker" colour="violet"
     valueA=lat prefixA="Lat: "
-    valueB=lon prefixB="Lng: "}}
+    valueB=lon prefixB="Lng: "
+  }}
   {{> card title="Weather"
-    valueA=codeString}}
+    icon=weatherIcon colour="red"
+    valueA=codeString
+  }}
   {{> card title="Temp"
     icon="temperature low" colour="blue"
     valueA=tempC suffixA="°C"

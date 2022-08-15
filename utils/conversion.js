@@ -16,6 +16,20 @@ const conversion = {
     return weatherCodes.get(code);
   },
 
+  weatherIcon(code) {
+    const weatherIcons = new Map([
+      [100, 'sun'],
+      [200, 'cloud sun'],
+      [300, 'cloud'],
+      [400, 'cloud sun rain'],
+      [500, 'cloud showers heavy'],
+      [600, 'cloud rain'],
+      [700, 'snowflake'],
+      [800, 'bolt']
+    ]);
+    return weatherIcons.get(code);
+  },
+
   temperatureFahrenheit(tempC) {
     return (tempC * 1.8) + 32;
   },

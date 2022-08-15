@@ -22,6 +22,7 @@ const weatherAnalytics = {
       station.maxWind = _.maxBy(station.readings, 'windSpeed').windSpeed;
       station.minWind = _.minBy(station.readings, 'windSpeed').windSpeed;
 
+      station.weatherIcon = conversion.weatherIcon(station.lastReading.code);
     };
   },
 
