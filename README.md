@@ -4,10 +4,15 @@ Allows members to add their own weather stations and readings.
 
 
 ## Resources
-* Handlebars Helpers\
+* Handlebars Helpers \
   https://github.com/helpers/handlebars-helpers
-* Serving static files in Express\
+* Serving static files in Express \
   http://expressjs.com/en/starter/static-files.html#serving-static-files-in-express
+* Handlebars Subexpressions \
+  https://handlebarsjs.com/guide/expressions.html#subexpressions
+* Lodash - min, max property in object array \
+  https://lodash.com/docs/#minBy \
+  https://lodash.com/docs/#maxBy
 
 ### Images
 * [Image 1](https://www.freepik.com/free-vector/meteorology-abstract-concept-vector-illustration-met-station-meteorology-program-university-degree-weather-prediction-method-measuring-instruments-atmosphere-study-abstract-metaphor_11668297.htm)

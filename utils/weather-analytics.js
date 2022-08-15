@@ -1,6 +1,7 @@
-"use strict";
+'use strict';
 
-const conversion = require("./conversion");
+const conversion = require('./conversion');
+const _ = require("lodash");
 const weatherAnalytics = {
 
   updateWeather(station) {
@@ -13,6 +14,14 @@ const weatherAnalytics = {
       station.lastReading.windCompass = conversion.azimuthToCompass(station.lastReading.windDirection);
       station.lastReading.windChill = weatherAnalytics.calculateWindChill(station.lastReading.temperature,
         station.lastReading.windSpeed).toFixed(1);
+
+      station.maxTemp = _.maxBy(station.readings, 'temperature').temperature;
+      station.minTemp = _.minBy(station.readings, 'temperature').temperature;
+      station.maxPressure = _.maxBy(station.readings, 'pressure').pressure;
+      station.minPressure = _.minBy(station.readings, 'pressure').pressure;
+      station.maxWind = _.maxBy(station.readings, 'windSpeed').windSpeed;
+      station.minWind = _.minBy(station.readings, 'windSpeed').windSpeed;
+
     };
   },
 
@@ -23,7 +32,7 @@ const weatherAnalytics = {
   calculateWindChill(temperature, windSpeed) {
     return (13.12 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16)
       + 0.3965 * temperature * Math.pow(windSpeed, 0.16));
-  }
+  },
 
 };
 
