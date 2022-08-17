@@ -21,7 +21,7 @@
     windChill=station.lastReading.windChill
   }}
 
-  {{> reading-table readings=station.readings}}
+  {{> reading-table readings=station.readings stationid=station.id}}
 
   {{> add-reading-form }}
 </section>

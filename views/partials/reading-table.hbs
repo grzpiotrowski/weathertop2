@@ -1,10 +1,10 @@
-<table class="ui celled table">
+<table class="ui striped table">
   <thead>
   {{> reading-header}}
   </thead>
   <tbody>
   {{#each readings}}
-    {{> reading-row code=code temperature=temperature windSpeed=windSpeed pressure=pressure}}
+    {{> reading-row code=code temperature=temperature windSpeed=windSpeed pressure=pressure stationid=../station.id}}
   {{/each}}
   </tbody>
 </table>

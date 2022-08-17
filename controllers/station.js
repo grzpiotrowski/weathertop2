@@ -33,6 +33,14 @@ const station = {
     logger.debug('New Reading = ', newReading);
     response.redirect('/station/' + stationId);
   },
+
+  deleteReading(request, response) {
+    const stationId = request.params.id;
+    const readingId = request.params.readingid;
+    logger.debug(`Deleting Reading ${readingId} from Station ${stationId}`);
+    stationStore.removeReading(stationId, readingId);
+    response.redirect('/station/' + stationId);
+  },
 }
 
 module.exports = station;
