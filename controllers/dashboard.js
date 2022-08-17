@@ -37,6 +37,14 @@ const dashboard = {
     stationStore.addStation(newStation);
     response.redirect('/dashboard');
   },
+
+  deleteStation(request, response) {
+    const stationId = request.params.id;
+    logger.info('Deleting station ' + stationId);
+    stationStore.removeStation(stationId);
+    response.redirect("/dashboard");
+  }
+
 };
 
 module.exports = dashboard;

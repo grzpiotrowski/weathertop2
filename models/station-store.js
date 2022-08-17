@@ -27,6 +27,12 @@ const stationStore = {
     this.store.save();
   },
 
+  removeStation(id) {
+    const station = this.getStation(id);
+    this.store.remove(this.collection, station);
+    this.store.save();
+  },
+
   addReading(id, reading) {
     const station = this.getStation(id);
     station.readings.push(reading);
