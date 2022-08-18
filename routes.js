@@ -25,5 +25,6 @@ router.post('/authenticate', accounts.authenticate);
 
 router.get('/accountsettings', accounts.settings);
 router.get('/securitysettings', accounts.authenticationSettings);
+router.post('/accounts/updateuserdetails', accounts.changeUserDetails);
 
 module.exports = router;

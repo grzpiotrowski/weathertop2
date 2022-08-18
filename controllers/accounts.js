@@ -71,6 +71,16 @@ const accounts = {
     }
   },
 
+  changeUserDetails(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+    const updatedUser = {
+      "firstName": request.body.firstname,
+      "lastName": request.body.lastname
+    };
+    userstore.updateUser(loggedInUser, updatedUser);
+    response.redirect('/accountsettings');
+  },
+
   getCurrentUser(request) {
     const userEmail = request.cookies.station;
     return userstore.getUserByEmail(userEmail);
