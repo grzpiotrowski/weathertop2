@@ -1,0 +1,32 @@
+{{> menu id="accountsettings" activepagetitle="Settings"}}
+
+<section class="ui segment">
+  <h2 class="ui header">Account Settings</h2>
+  <div class="ui grid">
+    <div class="four wide column">
+      {{> settingssidemenu id="personaldetails"}}
+    </div>
+    <div class="twelve wide stretched column">
+      <div class="ui two column grid">
+        <div class="sixteen wide column eight wide computer column">
+          <form class="ui basic segment form" action="/accounts/updatememberdetails" method="POST">
+            <h3 class="ui header">Personal details</h3>
+            <div class="ui divider"></div>
+            <div class="field">
+              <label class="ui left aligned">First Name</label>
+              <input placeholder="First Name" type="text" name="firstname" value="{{firstName}}">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input placeholder="Last Name" type="text" name="lastname" value="{{lastName}}">
+            </div>
+            <button class="ui blue submit button">Update details</button>
+          </form>
+        </div>
+        <div class="ui eight wide computer only column">
+          <img class="ui large rounded floated right image" src="images/settings.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

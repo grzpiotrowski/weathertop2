@@ -3,6 +3,7 @@
 const userstore = require('../models/user-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
+const { log } = require("winston");
 
 const accounts = {
 
@@ -30,6 +31,25 @@ const accounts = {
       title: 'Login to the Service',
     };
     response.render('signup', viewData);
+  },
+
+  settings(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+    const viewData = {
+      title: 'Settings - WeatherTop',
+      firstName: loggedInUser.firstName,
+      lastName: loggedInUser.lastName
+    };
+    response.render('accountsettings', viewData);
+  },
+
+  authenticationSettings(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+    const viewData = {
+      title: 'Settings - WeatherTop',
+      email: loggedInUser.email,
+    };
+    response.render('securitysettings', viewData);
   },
 
   register(request, response) {

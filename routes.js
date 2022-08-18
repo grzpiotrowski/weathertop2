@@ -23,4 +23,7 @@ router.get('/logout', accounts.logout);
 router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
 
+router.get('/accountsettings', accounts.settings);
+router.get('/securitysettings', accounts.authenticationSettings);
+
 module.exports = router;
