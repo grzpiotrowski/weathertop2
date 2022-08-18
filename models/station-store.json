@@ -13,7 +13,8 @@
           "temperature": 0.5,
           "windSpeed": 3.5,
           "pressure": 1002,
-          "windDirection": 90
+          "windDirection": 90,
+          "date": "2021-04-25T07:20:42.138Z"
         },
         {
           "id": "03",
@@ -21,7 +22,8 @@
           "temperature": 6,
           "windSpeed": 2,
           "pressure": 1004,
-          "windDirection": 96
+          "windDirection": 96,
+          "date": "2021-05-25T07:20:42.138Z"
         },
         {
           "id": "04",
@@ -29,7 +31,8 @@
           "temperature": 8,
           "windSpeed": 1,
           "pressure": 1005,
-          "windDirection": 101
+          "windDirection": 101,
+          "date": "2021-06-25T07:20:42.138Z"
         }
       ]
     },
@@ -46,7 +49,8 @@
           "temperature": 8,
           "windSpeed": 1,
           "pressure": 999,
-          "windDirection": 98
+          "windDirection": 98,
+          "date": "2021-02-25T07:20:42.138Z"
         },
         {
           "id": "07",
@@ -54,7 +58,8 @@
           "temperature": 0.5,
           "windSpeed": 3.5,
           "pressure": 1000,
-          "windDirection": 102
+          "windDirection": 102,
+          "date": "2021-03-25T07:20:42.138Z"
         }
       ]
     }
