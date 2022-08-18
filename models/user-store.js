@@ -23,6 +23,11 @@ const userStore = {
     this.store.save();
   },
 
+  updateUserPassword(user, newPassword) {
+    user.password = newPassword;
+    this.store.save();
+  },
+
   getUserById(id) {
     return this.store.findOneBy(this.collection, { id: id });
   },

@@ -81,6 +81,16 @@ const accounts = {
     response.redirect('/accountsettings');
   },
 
+  changeUserPassword(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+    const oldPassword = request.body.oldpassword
+    const newPassword = request.body.newpassword;
+    if (oldPassword===loggedInUser.password) {
+      userstore.updateUserPassword(loggedInUser, newPassword);
+    };
+    response.redirect('/securitysettings');
+  },
+
   getCurrentUser(request) {
     const userEmail = request.cookies.station;
     return userstore.getUserByEmail(userEmail);
