@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
 
 class JsonStore {
   constructor(file, defaults) {
@@ -51,7 +51,7 @@ class JsonStore {
   findByIds(collection, ids) {
     return this.db
       .get(collection)
-      .keyBy("id")
+      .keyBy('id')
       .at(ids)
       .value();
   }

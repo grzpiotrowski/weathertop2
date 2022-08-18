@@ -42,7 +42,7 @@ const dashboard = {
     const stationId = request.params.id;
     logger.info('Deleting station ' + stationId);
     stationStore.removeStation(stationId);
-    response.redirect("/dashboard");
+    response.redirect('/dashboard');
   }
 
 };
