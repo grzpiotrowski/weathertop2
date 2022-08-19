@@ -11,6 +11,7 @@ app.use(cookieParser());
 const exphbs = require('express-handlebars');
 var helpers = require('handlebars-helpers');
 var string = helpers.string();
+var comparison = helpers.comparison();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));

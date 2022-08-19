@@ -19,6 +19,9 @@
     maxPressure=station.maxPressure
     minPressure=station.minPressure
     windChill=station.lastReading.windChill
+    tempTrend=station.tempTrend
+    windTrend=station.windTrend
+    pressureTrend=station.pressureTrend
   }}
 
   {{> reading-table readings=station.readings stationid=station.id}}

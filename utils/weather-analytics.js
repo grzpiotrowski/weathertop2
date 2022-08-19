@@ -40,8 +40,8 @@ const weatherAnalytics = {
 
   tempTrend(readings) {
     let trend = 0;
-    if (readings.size() > 2) {
-      let values = [ readings[readings.size()-3].temperature, readings[readings.size()-2].temperature, readings[readings.size()-1].temperature ];
+    if (readings.length > 2) {
+      let values = [ readings[readings.length-3].temperature, readings[readings.length-2].temperature, readings[readings.length-1].temperature ];
       trend = this.calcTrend(values);
     }
     return trend;
@@ -49,8 +49,8 @@ const weatherAnalytics = {
 
   windTrend(readings) {
     let trend = 0;
-    if (readings.size() > 2) {
-      let values = [ readings[readings.size()-3].windSpeed, readings[readings.size()-2].windSpeed, readings[readings.size()-1].windSpeed ];
+    if (readings.length > 2) {
+      let values = [ readings[readings.length-3].windSpeed, readings[readings.length-2].windSpeed, readings[readings.length-1].windSpeed ];
       trend = this.calcTrend(values);
     }
     return trend;
@@ -58,8 +58,8 @@ const weatherAnalytics = {
 
   pressureTrend(readings) {
     let trend = 0;
-    if (readings.size() > 2) {
-      let values = [ readings[readings.size()-3].pressure,readings[readings.size()-2].pressure, readings[readings.size()-1].pressure ];
+    if (readings.length > 2) {
+      let values = [ readings[readings.length-3].pressure,readings[readings.length-2].pressure, readings[readings.length-1].pressure ];
       trend = this.calcTrend(values);
     }
     return trend;

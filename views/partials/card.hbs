@@ -13,6 +13,12 @@
         </div>
       </div>
       <div class="column">
+        {{#compare trend "===" 1}}
+          <i class="right floated big arrow up {{colour}} icon"></i>
+        {{/compare}}
+        {{#compare trend "===" -1}}
+          <i class="right floated big arrow down {{colour}} icon"></i>
+        {{/compare}}
       </div>
     </div>
   </div>
