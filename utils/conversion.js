@@ -30,8 +30,12 @@ const conversion = {
     return weatherIcons.get(code);
   },
 
-  temperatureFahrenheit(tempC) {
+  celsiusToFahrenheit(tempC) {
     return (tempC * 1.8) + 32;
+  },
+
+  kelvinToCelsius(tempK) {
+    return (tempK - 273.15);
   },
 
   kmhToBeaufort(kmh) {

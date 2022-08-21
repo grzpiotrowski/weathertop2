@@ -14,6 +14,7 @@ router.get('/station/:id', station.index);
 router.post('/dashboard/addstation', dashboard.addStation);
 router.get('/dashboard/deletestation/:id', dashboard.deleteStation);
 router.post('/station/:id/addreading', station.addReading);
+router.post('/station/:id/addopenweatherreading', station.addOpenWeatherReading);
 router.get('/station/:id/deletereading/:readingid', station.deleteReading);
 
 router.get('/', accounts.index);

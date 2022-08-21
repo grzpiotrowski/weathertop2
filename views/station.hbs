@@ -27,4 +27,9 @@
   {{> reading-table readings=station.readings stationid=station.id}}
 
   {{> add-reading-form }}
+
+  <form class="ui stacked segment form" action="/station/{{station.id}}/addopenweatherreading" method="POST">
+    <button class="ui green submit button">Add OpenWeather Reading</button>
+  </form>
+
 </section>

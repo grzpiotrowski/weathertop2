@@ -2,6 +2,7 @@
 
 const logger = require('../utils/logger');
 const uuid = require('uuid');
+const axios = require("axios");
 const stationStore = require('../models/station-store');
 const weatherAnalytics = require("../utils/weather-analytics");
 const conversion = require("../utils/conversion");
@@ -32,6 +33,31 @@ const station = {
     };
     stationStore.addReading(stationId, newReading);
     logger.debug('New Reading = ', newReading);
+    response.redirect('/station/' + stationId);
+  },
+
+  async addOpenWeatherReading(request, response) {
+    logger.info("Requesting a new report from OpenWeather API");
+    const stationId = request.params.id;
+    const station = stationStore.getStation(stationId);
+    let reading = {};
+    const lat = station.lat;
+    const lng = station.lon;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=MY_API_KEY`;
+
+    const result = await axios.get(requestUrl);
+    if (result.status == 200) {
+      const report = result.data;
+      reading.id = uuid.v1();
+      reading.date = new Date(report.dt * 1000).toISOString();
+      reading.code = report.weather[0].id;
+      reading.temperature = conversion.kelvinToCelsius(report.main.temp).toFixed(1);
+      reading.windSpeed = report.wind.speed;
+      reading.pressure = report.main.pressure;
+      reading.windDirection = report.wind.deg;
+    }
+    stationStore.addReading(stationId, reading);
+    console.log(reading);
     response.redirect('/station/' + stationId);
   },
 
