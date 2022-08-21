@@ -4,6 +4,14 @@ Allows members to add their own weather stations and readings.
 ### Deployed app
 https://grzegorz-weathertop2.glitch.me/
 
+## Main features
+* Members registration/login
+* Adding/removing member's weather stations
+* Adding/removing weather readings
+* Weather dashboard, min/max reading, trends
+* Member can change personal details and password
+* Add reading from OpenWeather API
+
 ## Resources
 * Handlebars Helpers \
   https://github.com/helpers/handlebars-helpers \
