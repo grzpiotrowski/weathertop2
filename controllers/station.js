@@ -23,6 +23,7 @@ const station = {
     const stationId = request.params.id;
     const newReading = {
       id: uuid.v1(),
+      date: new Date().toISOString(),
       code: Number(request.body.code),
       temperature: Number(request.body.temperature),
       windSpeed: Number(request.body.windSpeed),
