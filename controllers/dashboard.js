@@ -4,6 +4,7 @@ const logger = require('../utils/logger');
 const uuid = require('uuid');
 const stationStore = require('../models/station-store');
 const weatherAnalytics = require('../utils/weather-analytics');
+const utilsTools = require('../utils/utilsTools');
 const accounts = require ('./accounts.js');
 
 const dashboard = {
@@ -15,6 +16,7 @@ const dashboard = {
       weatherAnalytics.updateWeather(station);
       stations.push(station);
     };
+    stations.sort(utilsTools.compareStrings);
 
     const viewData = {
       title: 'Dashboard - WeatherTop',
