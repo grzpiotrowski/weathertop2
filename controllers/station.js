@@ -13,6 +13,20 @@ const station = {
     logger.debug('Station id = ', stationId);
     const station = stationStore.getStation(stationId);
     weatherAnalytics.updateWeather(station);
+
+    let tempReadings = [];
+    tempReadings = stationStore.getAllReadingsOfType(stationId, 'temperature');
+    station.tempReadings = tempReadings;
+
+    let dates = [];
+    let dateLabels = [];
+    dates = stationStore.getAllReadingsOfType(stationId, 'date');
+    for (let dateString of dates) {
+      const date = new Date(dateString);
+      dateLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`)
+    }
+    station.dateLabels = dateLabels;
+
     const viewData = {
       title: station.name + ' - WeatherTop',
       station: station

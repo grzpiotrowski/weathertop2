@@ -33,6 +33,11 @@ const stationStore = {
     this.store.save();
   },
 
+  getAllReadingsOfType(id, property) {
+    const station = this.getStation(id);
+    return _.map(station.readings, _.property(property));
+  },
+
   addReading(id, reading) {
     const station = this.getStation(id);
     station.readings.push(reading);
