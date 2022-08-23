@@ -57,7 +57,8 @@ const station = {
     let reading = {};
     const lat = station.lat;
     const lng = station.lon;
-    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=MY_API_KEY`;
+    const api_key = process.env.API_KEY;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${api_key}`;
 
     const result = await axios.get(requestUrl);
     if (result.status == 200) {

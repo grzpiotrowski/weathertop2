@@ -12,6 +12,9 @@ https://grzegorz-weathertop2.glitch.me/
 * Member can change personal details and password
 * Add reading from OpenWeather API
 
+## Deployment
+Rename .env_sample file to .env and put your Open Weather API key in place of YOUR_OPENWEATHER_API_KEY.
+
 ## Resources
 * Handlebars Helpers \
   https://github.com/helpers/handlebars-helpers \
