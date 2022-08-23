@@ -23,11 +23,14 @@ https://grzegorz-weathertop2.glitch.me/
   https://handlebarsjs.com/guide/expressions.html#subexpressions
 * Lodash - min, max property in object array \
   https://lodash.com/docs/#minBy \
-  https://lodash.com/docs/#maxBy
+  https://lodash.com/docs/#maxBy \
+  https://lodash.com/docs/4.17.15#map
 * Array sorting \
-  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort \
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 * Date \
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+* Leaflet Map \
+  https://leafletjs.com/examples/quick-start/
 
 ### Images
 * [Image 1](https://www.freepik.com/free-vector/meteorology-abstract-concept-vector-illustration-met-station-meteorology-program-university-degree-weather-prediction-method-measuring-instruments-atmosphere-study-abstract-metaphor_11668297.htm)
