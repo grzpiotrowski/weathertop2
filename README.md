@@ -31,6 +31,8 @@ https://grzegorz-weathertop2.glitch.me/
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 * Leaflet Map \
   https://leafletjs.com/examples/quick-start/
+* Hiding API Key with nodejs \
+  https://monsterlessons-academy.com/posts/how-to-hide-api-keys-with-node-js
 
 ### Images
 * [Image 1](https://www.freepik.com/free-vector/meteorology-abstract-concept-vector-illustration-met-station-meteorology-program-university-degree-weather-prediction-method-measuring-instruments-atmosphere-study-abstract-metaphor_11668297.htm)

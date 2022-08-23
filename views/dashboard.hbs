@@ -2,8 +2,12 @@
 
 <section class="ui segment">
   {{> station-list }}
+
+  <section class="ui segment">
+    <div id="map" style="width: 100%; height: 400px;"></div>
+  </section>
+
   {{> add-station-form }}
-  <div id="map" style="width: 100%; height: 400px;"></div>
 
   <script>
     var map = L.map('map').setView([53.1775, -6.8020], 13);
