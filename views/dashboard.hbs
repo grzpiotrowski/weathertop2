@@ -19,10 +19,11 @@
     const stationCollection = [
       {{#each stations}}
         {
-          id: {{this.id}},
+          id: '{{this.id}}',
           name: '{{this.name}}',
           lat: {{this.lat}},
           lon: {{this.lon}},
+          weather: '{{this.lastReading.codeString}}',
           temperature: {{this.lastReading.temperature}},
           pressure: {{this.lastReading.pressure}},
           windSpeed: {{this.lastReading.windSpeed}}
@@ -35,8 +36,11 @@
       var marker = L.marker([station.lat, station.lon]).addTo(map);
       group.addLayer(marker);
       station.marker = marker;
-      marker.bindPopup(`<h3>${station.name}</h3><p>Temp: ${station.temperature} &#176;C<br>
-        Pressure: ${station.pressure} hPa<br>Wind speed: ${station.windSpeed} km/h</p>`)
+      marker.bindPopup(`<a href="/station/${station.id}"><h3>${station.name}</h3></a>
+        <p><b>${station.weather}</b><br>
+        Temp: ${station.temperature} &#176;C<br>
+        Pressure: ${station.pressure} hPa<br>
+        Wind speed: ${station.windSpeed} km/h</p>`)
     }
     map.fitBounds(group.getBounds());
 
