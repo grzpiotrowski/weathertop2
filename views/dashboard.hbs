@@ -10,11 +10,27 @@
   {{> add-station-form }}
 
   <script>
-    var map = L.map('map').setView([53.1775, -6.8020], 13);
+    var map = L.map('map').setView([53.449476, -7.5029786], 6);
     var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    const stationCollection = [
+      {{#each stations}}
+        {
+          id: {{this.id}},
+          name: '{{this.name}}',
+          lat: {{this.lat}},
+          lon: {{this.lon}}
+        },
+      {{/each}}
+    ];
+
+    for (const station of stationCollection) {
+      L.marker([station.lat, station.lon]).addTo(map);
+    };
+
   </script>
 
 </section>
