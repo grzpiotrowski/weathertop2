@@ -22,16 +22,22 @@
           id: {{this.id}},
           name: '{{this.name}}',
           lat: {{this.lat}},
-          lon: {{this.lon}}
+          lon: {{this.lon}},
+          temperature: {{this.lastReading.temperature}},
+          pressure: {{this.lastReading.pressure}},
+          windSpeed: {{this.lastReading.windSpeed}}
         },
       {{/each}}
     ];
 
     var group = new L.featureGroup([]);
     for (const station of stationCollection) {
-      group.addLayer(L.marker([station.lat, station.lon]).addTo(map));
+      var marker = L.marker([station.lat, station.lon]).addTo(map);
+      group.addLayer(marker);
+      station.marker = marker;
+      marker.bindPopup(`<h3>${station.name}</h3><p>Temp: ${station.temperature} &#176;C<br>
+        Pressure: ${station.pressure} hPa<br>Wind speed: ${station.windSpeed} km/h</p>`)
     }
-
     map.fitBounds(group.getBounds());
 
   </script>
