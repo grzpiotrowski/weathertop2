@@ -27,9 +27,12 @@
       {{/each}}
     ];
 
+    var group = new L.featureGroup([]);
     for (const station of stationCollection) {
-      L.marker([station.lat, station.lon]).addTo(map);
-    };
+      group.addLayer(L.marker([station.lat, station.lon]).addTo(map));
+    }
+
+    map.fitBounds(group.getBounds());
 
   </script>
 
