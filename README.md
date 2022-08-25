@@ -40,6 +40,12 @@ Rename .env_sample file to .env and put your Open Weather API key in place of YO
   https://monsterlessons-academy.com/posts/how-to-hide-api-keys-with-node-js
 * CSS \
   https://www.w3schools.com/cssref/pr_pos_z-index.asp
+* Semantic UI \
+  https://semantic-ui.com/modules/tab.html#/settings
+* jQuery Selectors \
+  https://www.w3schools.com/jquery/jquery_ref_selectors.asp
+* Loading a Frappe chart in a hidden div \
+  https://github.com/frappe/charts/issues/249
 
 ### Images
 * [Image 1](https://www.freepik.com/free-vector/meteorology-abstract-concept-vector-illustration-met-station-meteorology-program-university-degree-weather-prediction-method-measuring-instruments-atmosphere-study-abstract-metaphor_11668297.htm)
