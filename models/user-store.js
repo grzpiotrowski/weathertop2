@@ -28,6 +28,10 @@ const userStore = {
     this.store.save();
   },
 
+  checkPassword(user, password) {
+    return user.password === password;
+  },
+
   getUserById(id) {
     return this.store.findOneBy(this.collection, { id: id });
   },

@@ -12,6 +12,18 @@
       </div>
       <button class="ui blue submit button">Login</button>
     </form>
+    {{#if errors}}
+    <div class="ui negative message">
+      <div class="header">
+        Log in failed. Please try again.
+      </div>
+      <ul class="list">
+        {{#each errors}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    {{/if}}
   </div>
   <div class="column">
     <img class="ui image" src="images/login.jpg">

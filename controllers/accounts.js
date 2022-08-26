@@ -9,14 +9,14 @@ const accounts = {
 
   index(request, response) {
     const viewData = {
-      title: 'Login or Signup',
+      title: 'Home - WeatherTop',
     };
     response.render('index', viewData);
   },
 
   login(request, response) {
     const viewData = {
-      title: 'Login to the Service',
+      title: 'Login - WeatherTop',
     };
     response.render('login', viewData);
   },
@@ -28,7 +28,7 @@ const accounts = {
 
   signup(request, response) {
     const viewData = {
-      title: 'Login to the Service',
+      title: 'Signup - WeatherTop',
     };
     response.render('signup', viewData);
   },
@@ -61,13 +61,19 @@ const accounts = {
   },
 
   authenticate(request, response) {
+    let errormessages = [];
     const user = userstore.getUserByEmail(request.body.email);
-    if (user.password === request.body.password) {
+    if (user !== undefined && userstore.checkPassword(user, request.body.password)) {
       response.cookie('station', user.email);
       logger.info(`logging in ${user.email}`);
       response.redirect('/dashboard');
     } else {
-      response.redirect('/login');
+      const viewData = {
+        title: 'Login - WeatherTop',
+        errors: errormessages
+      };
+      errormessages.push('Incorrect login or password!');
+      response.render('login', viewData);
     }
   },
 
