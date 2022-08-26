@@ -54,10 +54,40 @@ const accounts = {
 
   register(request, response) {
     const user = request.body;
-    user.id = uuid.v1();
-    userstore.addUser(user);
-    logger.info(`registering ${user.email}`);
-    response.redirect('/');
+
+    let errormessages = [];
+    if (userstore.isEmailTaken(request.body.email)) {
+      logger.info("Email already taken: " + request.body.email);
+      errormessages.push("Email already taken.");
+    }
+    if (request.body.email === "") {
+      errormessages.push("Email is required.");
+    }
+    if (request.body.password === "") {
+      errormessages.push("Password is required.");
+    }
+    if (request.body.firstname === "") {
+      errormessages.push("First Name is required.");
+    }
+    if (request.body.lastname === "") {
+      errormessages.push("Last Name is required.");
+    }
+
+    if (errormessages.length === 0) {
+      logger.info(`Registering new user: ${user.email}`);
+      user.id = uuid.v1();
+      userstore.addUser(user);
+      response.redirect("/");
+    } else {
+      const viewData = {
+        title: "Signup - WeatherTop",
+        firstname: request.body.firstname,
+        lastname: request.body.lastname,
+        email: request.body.email,
+        errors: errormessages
+      }
+      response.render("signup", viewData);
+    }
   },
 
   authenticate(request, response) {

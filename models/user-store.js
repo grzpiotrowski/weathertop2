@@ -36,6 +36,14 @@ const userStore = {
     return this.store.findOneBy(this.collection, { id: id });
   },
 
+  isEmailTaken(email) {
+    if (this.store.findOneBy(this.collection, { email: email }) !== undefined) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
   getUserByEmail(email) {
     return this.store.findOneBy(this.collection, { email: email });
   },
