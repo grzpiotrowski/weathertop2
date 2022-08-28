@@ -6,11 +6,11 @@ const axios = require("axios");
 const stationStore = require('../models/station-store');
 const weatherAnalytics = require("../utils/weather-analytics");
 const conversion = require("../utils/conversion");
-const accounts = require("./accounts");
+const userstore = require("../models/user-store");
 
 const station = {
   index(request, response) {
-    const loggedInUser = accounts.getCurrentUser(request);
+    const loggedInUser = userstore.getCurrentUser(request);
 
     const stationId = request.params.id;
     logger.debug('Station id = ', stationId);

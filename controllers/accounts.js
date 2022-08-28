@@ -22,7 +22,7 @@ const accounts = {
   },
 
   logout(request, response) {
-    response.cookie('station', '');
+    response.cookie('authToken', '');
     response.redirect('/');
   },
 
@@ -34,7 +34,7 @@ const accounts = {
   },
 
   settings(request, response) {
-    const loggedInUser = accounts.getCurrentUser(request);
+    const loggedInUser = userstore.getCurrentUser(request);
     const viewData = {
       title: 'Settings - WeatherTop',
       firstName: loggedInUser.firstName,
@@ -44,7 +44,7 @@ const accounts = {
   },
 
   authenticationSettings(request, response) {
-    const loggedInUser = accounts.getCurrentUser(request);
+    const loggedInUser = userstore.getCurrentUser(request);
     const viewData = {
       title: 'Settings - WeatherTop',
       email: loggedInUser.email,
@@ -94,7 +94,7 @@ const accounts = {
     let errormessages = [];
     const user = userstore.getUserByEmail(request.body.email);
     if (user !== undefined && userstore.checkPassword(user, request.body.password)) {
-      response.cookie('station', user.email);
+      response.cookie('authToken', user.email);
       logger.info(`logging in ${user.email}`);
       response.redirect('/dashboard');
     } else {
@@ -108,7 +108,7 @@ const accounts = {
   },
 
   changeUserDetails(request, response) {
-    const loggedInUser = accounts.getCurrentUser(request);
+    const loggedInUser = userstore.getCurrentUser(request);
     let messages = [];
     const updatedUser = {
       "firstName": request.body.firstname,
@@ -126,7 +126,7 @@ const accounts = {
   },
 
   changeUserPassword(request, response) {
-    const loggedInUser = accounts.getCurrentUser(request);
+    const loggedInUser = userstore.getCurrentUser(request);
     const oldPassword = request.body.oldpassword
     const newPassword = request.body.newpassword;
     const newPasswordConfirm = request.body.newpasswordconfirm;
@@ -150,11 +150,6 @@ const accounts = {
     };
 
     response.render('securitysettings', viewData);
-  },
-
-  getCurrentUser(request) {
-    const userEmail = request.cookies.station;
-    return userstore.getUserByEmail(userEmail);
   },
 };
 

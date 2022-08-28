@@ -47,6 +47,11 @@ const userStore = {
   getUserByEmail(email) {
     return this.store.findOneBy(this.collection, { email: email });
   },
+
+  getCurrentUser(request) {
+    const userEmail = request.cookies.authToken;
+    return this.getUserByEmail(userEmail);
+  },
 };
 
 module.exports = userStore;

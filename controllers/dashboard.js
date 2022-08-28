@@ -5,12 +5,12 @@ const uuid = require('uuid');
 const stationStore = require('../models/station-store');
 const weatherAnalytics = require('../utils/weather-analytics');
 const utilsTools = require('../utils/utilsTools');
-const accounts = require ('./accounts.js');
+const userstore = require("../models/user-store");
 
 const dashboard = {
   index(request, response) {
     logger.info('dashboard rendering');
-    const loggedInUser = accounts.getCurrentUser(request);
+    const loggedInUser = userstore.getCurrentUser(request);
     if (loggedInUser === undefined) {
       response.redirect('/login');
     }
@@ -29,7 +29,7 @@ const dashboard = {
   },
 
   addStation(request, response) {
-    const loggedInUser = accounts.getCurrentUser(request);
+    const loggedInUser = userstore.getCurrentUser(request);
     const newStation = {
       id: uuid.v1(),
       userid: loggedInUser.id,
