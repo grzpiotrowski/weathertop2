@@ -109,12 +109,20 @@ const accounts = {
 
   changeUserDetails(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
+    let messages = [];
     const updatedUser = {
       "firstName": request.body.firstname,
       "lastName": request.body.lastname
     };
     userstore.updateUser(loggedInUser, updatedUser);
-    response.redirect('/accountsettings');
+    messages.push('Personal details updated!');
+    const viewData = {
+      title: 'Settings - WeatherTop',
+      firstName: loggedInUser.firstName,
+      lastName: loggedInUser.lastName,
+      messages: messages
+    };
+    response.render('accountsettings', viewData);
   },
 
   changeUserPassword(request, response) {
