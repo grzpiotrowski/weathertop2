@@ -11,6 +11,7 @@ https://grzegorz-weathertop2.glitch.me/
 * Weather dashboard, min/max reading, trends
 * Member can change personal details and password
 * Add reading from OpenWeather API
+* Charts for temperature, pressure and wind
 
 ## Deployment
 Rename .env_sample file to .env and put your Open Weather API key in place of YOUR_OPENWEATHER_API_KEY.

@@ -1,10 +1,15 @@
 <h3>New station</h3>
 <form class="ui form" action="/dashboard/addstation" method="POST">
     <div class="field">
-      <label>Name</label>
       <input placeholder="Name" type="text" name="name" required="true">
     </div>
-  <input id="popupLatitudeInput" type="number" name="latitude" step="any" required="true">
-  <input id="popupLongitudeInput" type="number" name="longitude" step="any" required="true">
+  <div class="ui small transparent labeled input">
+    <div class="ui label" style="width:20%; text-align:right;">Lat:</div>
+    <input id="popupLatitudeInput" type="number" name="latitude" step="any" required="true" readonly>
+  </div>
+  <div class="ui small transparent labeled input">
+    <div class="ui label" style="width:20%; text-align:right;">Lon:</div>
+    <input id="popupLongitudeInput" type="number" name="longitude" step="any" required="true" readonly>
+  </div>
   <button class="ui blue submit button">Add Station</button>
 </form>

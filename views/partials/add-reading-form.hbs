@@ -2,23 +2,23 @@
   <div class="five fields">
     <div class="field">
       <label>Code</label>
-      <input placeholder="00" type="number" step="100" name="code">
+      <input placeholder="000" type="number" step="1" name="code" required>
     </div>
     <div class="field">
-      <label>Temperature</label>
-      <input placeholder="00.0C" type="number" name="temperature">
+      <label>Temp [&#176;C]</label>
+      <input placeholder="00.0" type="number" name="temperature" required>
     </div>
     <div class="field">
-      <label>Wind Speed</label>
-      <input placeholder="00.00kMh" type="number" name="windSpeed">
+      <label>Wind Speed [km/h]</label>
+      <input placeholder="0.00" type="number" name="windSpeed" required>
     </div>
     <div class="field">
-      <label>Wind Direction</label>
-      <input placeholder="000deg" type="number" name="windDirection">
+      <label>Wind Direction [&#176;]</label>
+      <input placeholder="000" type="number" name="windDirection" required>
     </div>
     <div class="field">
-      <label>Pressure</label>
-      <input placeholder="000hPa" type="number" name="pressure">
+      <label>Pressure [hPa]</label>
+      <input placeholder="0000" type="number" name="pressure" required>
     </div>
   </div>
   <button class="ui blue submit button"> Submit Report </button>
