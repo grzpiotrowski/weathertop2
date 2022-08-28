@@ -36,6 +36,7 @@ Rename .env_sample file to .env and put your Open Weather API key in place of YO
   https://leafletjs.com/examples/quick-start/
   https://leafletjs.com/reference-1.6.0.html#marker
   https://leafletjs.com/reference-1.6.0.html#featuregroup
+  https://leafletjs.com/reference.html#latlng
 * Hiding API Key with nodejs \
   https://monsterlessons-academy.com/posts/how-to-hide-api-keys-with-node-js
 * CSS \

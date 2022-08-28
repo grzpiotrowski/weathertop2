@@ -44,6 +44,21 @@
     }
     map.fitBounds(group.getBounds());
 
+    map.on('click', function(e) {
+      var popLocation = e.latlng;
+      var addStationPopup = L.popup()
+        .setLatLng(popLocation)
+        .setContent(`{{> add-station-popup }}`)
+        .openOn(map);
+      var latitudeField = document.getElementById('popupLatitudeInput');
+      var longitudeField = document.getElementById('popupLongitudeInput');
+      latitudeField.value = popLocation.lat.toFixed(5);
+      longitudeField.value = popLocation.lng.toFixed(5);
+
+    });
+
+
+
   </script>
 
 </section>
