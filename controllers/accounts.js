@@ -121,10 +121,27 @@ const accounts = {
     const loggedInUser = accounts.getCurrentUser(request);
     const oldPassword = request.body.oldpassword
     const newPassword = request.body.newpassword;
-    if (oldPassword===loggedInUser.password) {
-      userstore.updateUserPassword(loggedInUser, newPassword);
+    const newPasswordConfirm = request.body.newpasswordconfirm;
+    let errormessages = [];
+    let messages = [];
+
+    if (newPassword === newPasswordConfirm) {
+      if (userstore.checkPassword(loggedInUser, oldPassword)) {
+        userstore.updateUserPassword(loggedInUser, newPassword);
+        messages.push('Password changed successfully!');
+      } else {
+        errormessages.push('Incorrect old password.');
+      }
+    } else {
+      errormessages.push('New password does not match.');
+    }
+    const viewData = {
+      title: 'Settings - WeatherTop',
+      errors: errormessages,
+      messages: messages
     };
-    response.redirect('/securitysettings');
+
+    response.render('securitysettings', viewData);
   },
 
   getCurrentUser(request) {
