@@ -6,32 +6,41 @@ const axios = require("axios");
 const stationStore = require('../models/station-store');
 const weatherAnalytics = require("../utils/weather-analytics");
 const conversion = require("../utils/conversion");
+const accounts = require("./accounts");
 
 const station = {
   index(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+
     const stationId = request.params.id;
     logger.debug('Station id = ', stationId);
     const station = stationStore.getStation(stationId);
-    weatherAnalytics.updateWeather(station);
 
-    let tempReadings = [];
-    tempReadings = stationStore.getAllReadingsOfType(stationId, 'temperature');
-    station.tempReadings = tempReadings;
+    if (loggedInUser.id === station.userid) {
+      weatherAnalytics.updateWeather(station);
 
-    let dates = [];
-    let dateLabels = [];
-    dates = stationStore.getAllReadingsOfType(stationId, 'date');
-    for (let dateString of dates) {
-      const date = new Date(dateString);
-      dateLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`)
+      let tempReadings = [];
+      tempReadings = stationStore.getAllReadingsOfType(stationId, 'temperature');
+      station.tempReadings = tempReadings;
+
+      let dates = [];
+      let dateLabels = [];
+      dates = stationStore.getAllReadingsOfType(stationId, 'date');
+      for (let dateString of dates) {
+        const date = new Date(dateString);
+        dateLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`)
+      }
+      station.dateLabels = dateLabels;
+
+      const viewData = {
+        title: station.name + ' - WeatherTop',
+        station: station
+      };
+      response.render('station', viewData);
+    } else {
+      response.redirect('/login');
     }
-    station.dateLabels = dateLabels;
 
-    const viewData = {
-      title: station.name + ' - WeatherTop',
-      station: station
-    };
-    response.render('station', viewData);
   },
 
   addReading(request, response) {

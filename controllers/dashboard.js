@@ -11,11 +11,14 @@ const dashboard = {
   index(request, response) {
     logger.info('dashboard rendering');
     const loggedInUser = accounts.getCurrentUser(request);
+    if (loggedInUser === undefined) {
+      response.redirect('/login');
+    }
     let stations = [];
     for (let station of stationStore.getUserStations(loggedInUser.id)) {
       weatherAnalytics.updateWeather(station);
       stations.push(station);
-    };
+    }
     stations.sort(utilsTools.compareStrings);
 
     const viewData = {
