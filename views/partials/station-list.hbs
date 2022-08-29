@@ -1,5 +1,5 @@
 {{#each stations}}
-  <section class="ui stacked segment">
+  <section class="ui stacked segment" style="background: #6587A1; border-radius: 20px;" >
     {{> station-panel
       name=name
       lat=lat
@@ -14,13 +14,13 @@
     }}
     <div class="ui divider"></div>
     <a href="/station/{{id}}">
-      <button class="ui icon button">
+      <button class="circular medium black ui icon button" data-tooltip="Open Station">
         <i class="folder open icon"></i>
       </button>
     </a>
     <a href="/dashboard/deletestation/{{id}}">
-      <button class="ui icon button">
-        <i class="red trash alternate icon"></i>
+      <button class="circular medium red ui icon button" data-tooltip="Delete Station">
+        <i class="trash alternate icon"></i>
       </button>
     </a>
   </section>

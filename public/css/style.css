@@ -1,0 +1,14 @@
+#add-reading-form,
+#add-station-form {
+    background: #D0E6BB;
+}
+
+body {
+    background: #1A222E;
+}
+
+.custom-rounded {
+    border-radius: 30px;
+}
+
+

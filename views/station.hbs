@@ -1,6 +1,7 @@
 {{> menu activepagetitle=(append station.name " Weather Station")}}
 
 <section class="ui segment">
+  <section class="ui stacked segment" style="background: #6587A1; border-radius: 20px;" >
   {{> station-panel
     name=station.name
     lat=station.lat
@@ -23,7 +24,8 @@
     windTrend=station.windTrend
     pressureTrend=station.pressureTrend
   }}
-
+  <div class="ui divider"></div>
+  </section>
   <div class="ui top attached tabular menu">
     <a class="item active" data-tab="first">Temperature</a>
     <a class="item" data-tab="second">Wind</a>
