@@ -4,32 +4,34 @@
     valueA=lat prefixA="Lat: "
     valueB=lon prefixB="Lng: "
   }}
-  {{> card title="Weather"
-    icon=weatherIcon colour="red"
-    valueA=codeString
-  }}
-  {{> card title="Temp"
-    icon="temperature low" colour="blue"
-    valueA=tempC suffixA="°C"
-    valueB=tempF suffixB="°F"
-    prefixC="Max: " valueC=maxTemp suffixC="°C"
-    prefixD="Min: " valueD=minTemp suffixD="°C"
-    trend=tempTrend
-  }}
-  {{> card title="Wind"
-    icon="wind" colour="green"
-    valueA=windBft suffixA="bft"
-    valueB=windCompass
-    prefixC="Feels like: " valueC=windChill suffixC=" °C"
-    prefixD="Max: " valueD=maxWind suffixD="kmh"
-    prefixE="Min: " valueE=minWind suffixE="kmh"
-    trend=windTrend
-  }}
-  {{> card title="Pressure"
-    icon="compress arrows alternate" colour="orange"
-    valueA=pressure suffixA="hPa"
-    prefixB="Max: " valueB=maxPressure suffixB="hPa"
-    prefixC="Min: " valueC=minPressure suffixC="hPa"
-    trend=pressureTrend
-  }}
+  {{#if displayWeatherCards}}
+    {{> card title="Weather"
+      icon=weatherIcon colour="red"
+      valueA=codeString
+    }}
+    {{> card title="Temp"
+      icon="temperature low" colour="blue"
+      valueA=tempC suffixA="°C"
+      valueB=tempF suffixB="°F"
+      prefixC="Max: " valueC=maxTemp suffixC="°C"
+      prefixD="Min: " valueD=minTemp suffixD="°C"
+      trend=tempTrend
+    }}
+    {{> card title="Wind"
+      icon="wind" colour="green"
+      valueA=windBft suffixA="bft"
+      valueB=windCompass
+      prefixC="Feels like: " valueC=windChill suffixC=" °C"
+      prefixD="Max: " valueD=maxWind suffixD="kmh"
+      prefixE="Min: " valueE=minWind suffixE="kmh"
+      trend=windTrend
+    }}
+    {{> card title="Pressure"
+      icon="compress arrows alternate" colour="orange"
+      valueA=pressure suffixA="hPa"
+      prefixB="Max: " valueB=maxPressure suffixB="hPa"
+      prefixC="Min: " valueC=minPressure suffixC="hPa"
+      trend=pressureTrend
+    }}
+  {{/if}}
 </div>

@@ -32,9 +32,17 @@ const station = {
       }
       station.dateLabels = dateLabels;
 
+      let displayCharts = (station.readings.length > 1);
+      let displayWeatherCards = true;
+      if (station.readings.length == 0) {
+        displayWeatherCards = false;
+      }
+
       const viewData = {
         title: station.name + ' - WeatherTop',
-        station: station
+        station: station,
+        displayCharts: displayCharts,
+        displayWeatherCards: displayWeatherCards
       };
       response.render('station', viewData);
     } else {

@@ -17,13 +17,18 @@ const dashboard = {
     let stations = [];
     for (let station of stationStore.getUserStations(loggedInUser.id)) {
       weatherAnalytics.updateWeather(station);
+      if (station.readings.length > 0) {
+        station.displayWeatherCards = true;
+      } else {
+        station.displayWeatherCards = false;
+      }
       stations.push(station);
     }
     stations.sort(utilsTools.compareStrings);
 
     const viewData = {
       title: 'Dashboard - WeatherTop',
-      stations: stations
+      stations: stations,
     };
     response.render('dashboard', viewData);
   },
