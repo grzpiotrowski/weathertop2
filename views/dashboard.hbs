@@ -42,7 +42,10 @@
         Pressure: ${station.pressure} hPa<br>
         Wind speed: ${station.windSpeed} km/h</p>`)
     }
-    map.fitBounds(group.getBounds());
+
+    if (group.length > 0) {
+      map.fitBounds(group.getBounds());
+    }
 
     map.on('click', function(e) {
       var popLocation = e.latlng;
