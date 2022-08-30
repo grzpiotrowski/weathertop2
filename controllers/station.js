@@ -33,6 +33,7 @@ const station = {
       station.dateLabels = dateLabels;
 
       let displayCharts = (station.readings.length > 1);
+      let displayReadings = (station.readings.length > 0);
       let displayWeatherCards = true;
       if (station.readings.length == 0) {
         displayWeatherCards = false;
@@ -42,6 +43,7 @@ const station = {
         title: station.name + ' - WeatherTop',
         station: station,
         displayCharts: displayCharts,
+        displayReadings: displayReadings,
         displayWeatherCards: displayWeatherCards
       };
       response.render('station', viewData);

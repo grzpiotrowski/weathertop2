@@ -148,10 +148,12 @@
       });
 
     </script>
-
-    {{> reading-table readings=station.readings stationid=station.id}}
-
   {{/if}}
+  {{#if displayReadings}}
+    {{> reading-table readings=station.readings stationid=station.id}}
+  {{/if}}
+
+
 
   {{> add-reading-form }}
 
