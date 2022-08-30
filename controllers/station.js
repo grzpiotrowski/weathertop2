@@ -28,7 +28,7 @@ const station = {
       dates = stationStore.getAllReadingsOfType(stationId, 'date');
       for (let dateString of dates) {
         const date = new Date(dateString);
-        dateLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`)
+        dateLabels.push(conversion.dateToFormattedString(date, true));
       }
       station.dateLabels = dateLabels;
 
