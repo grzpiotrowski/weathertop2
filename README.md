@@ -20,7 +20,10 @@ Rename .env_sample file to .env and put your Open Weather API key in place of YO
 * Handlebars Helpers \
   https://github.com/helpers/handlebars-helpers \
   https://github.com/helpers/handlebars-helpers#compare \
-  https://github.com/helpers/handlebars-helpers#append
+  https://github.com/helpers/handlebars-helpers#append \
+* Creating custom handlebars helpers
+  https://www.npmjs.com/package/express-handlebars#helpers \
+  https://stackoverflow.com/a/44354612
 * Serving static files in Express \
   http://expressjs.com/en/starter/static-files.html#serving-static-files-in-express
 * Handlebars Subexpressions \

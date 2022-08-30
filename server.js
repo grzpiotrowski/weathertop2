@@ -11,6 +11,7 @@ const app = express();
 app.use(cookieParser());
 const exphbs = require('express-handlebars');
 var helpers = require('handlebars-helpers');
+var customHelpers = require('./views/helpers/customHelpers');
 var string = helpers.string();
 var comparison = helpers.comparison();
 
@@ -21,7 +22,8 @@ app.engine(
   '.hbs',
   exphbs({
     extname: '.hbs',
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    helpers: customHelpers
   })
 );
 app.set('view engine', '.hbs');
