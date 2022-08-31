@@ -75,8 +75,7 @@ const weatherAnalytics = {
       }
     }
     return trend;
-  }
-
+  },
 };
 
 module.exports = weatherAnalytics;

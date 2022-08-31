@@ -51,6 +51,21 @@ const stationStore = {
     this.store.save();
   },
 
+  clearTrends(station) {
+    station.lastReading = {};
+    station.minTemp = undefined;
+    station.maxTemp = undefined;
+    station.minPressure = undefined;
+    station.maxPressure = undefined;
+    station.minWind = undefined;
+    station.maxWind = undefined;
+    station.tempTrend = undefined;
+    station.pressureTrend = undefined;
+    station.windTrend = undefined;
+    station.weatherIcon = undefined;
+    this.store.save();
+  }
+
 };
 
 

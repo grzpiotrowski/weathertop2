@@ -21,6 +21,7 @@ const dashboard = {
         station.displayWeatherCards = true;
       } else {
         station.displayWeatherCards = false;
+        stationStore.clearTrends(station);
       }
       stations.push(station);
     }

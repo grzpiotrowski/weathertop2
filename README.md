@@ -51,6 +51,8 @@ Rename .env_sample file to .env and put your Open Weather API key in place of YO
   https://www.w3schools.com/jquery/jquery_ref_selectors.asp
 * Loading a Frappe chart in a hidden div \
   https://github.com/frappe/charts/issues/249
+* Async function \
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 
 ### Images
 Vector graphics used in this project were generated using DALL·E 2 AI system
