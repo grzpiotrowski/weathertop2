@@ -11,27 +11,28 @@ const dashboard = {
   index(request, response) {
     logger.info('dashboard rendering');
     const loggedInUser = userstore.getCurrentUser(request);
-    if (loggedInUser === undefined) {
+    if (!loggedInUser) {
       response.redirect('/login');
-    }
-    let stations = [];
-    for (let station of stationStore.getUserStations(loggedInUser.id)) {
-      weatherAnalytics.updateWeather(station);
-      if (station.readings.length > 0) {
-        station.displayWeatherCards = true;
-      } else {
-        station.displayWeatherCards = false;
-        stationStore.clearTrends(station);
+    } else {
+      let stations = [];
+      for (let station of stationStore.getUserStations(loggedInUser.id)) {
+        weatherAnalytics.updateWeather(station);
+        if (station.readings.length > 0) {
+          station.displayWeatherCards = true;
+        } else {
+          station.displayWeatherCards = false;
+          stationStore.clearTrends(station);
+        }
+        stations.push(station);
       }
-      stations.push(station);
-    }
-    stations.sort(utilsTools.compareStrings);
+      stations.sort(utilsTools.compareStrings);
 
-    const viewData = {
-      title: 'Dashboard - WeatherTop',
-      stations: stations,
-    };
-    response.render('dashboard', viewData);
+      const viewData = {
+        title: 'Dashboard - WeatherTop',
+        stations: stations,
+      };
+      response.render('dashboard', viewData);
+    }
   },
 
   addStation(request, response) {

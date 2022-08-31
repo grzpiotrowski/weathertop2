@@ -15,38 +15,41 @@ const station = {
     const stationId = request.params.id;
     logger.debug('Station id = ', stationId);
     const station = stationStore.getStation(stationId);
+    if (loggedInUser) {
+      if (loggedInUser.id === station.userid) {
+        weatherAnalytics.updateWeather(station);
 
-    if (loggedInUser.id === station.userid) {
-      weatherAnalytics.updateWeather(station);
+        let tempReadings = [];
+        tempReadings = stationStore.getAllReadingsOfType(stationId, 'temperature');
+        station.tempReadings = tempReadings;
 
-      let tempReadings = [];
-      tempReadings = stationStore.getAllReadingsOfType(stationId, 'temperature');
-      station.tempReadings = tempReadings;
+        let dates = [];
+        let dateLabels = [];
+        dates = stationStore.getAllReadingsOfType(stationId, 'date');
+        for (let dateString of dates) {
+          const date = new Date(dateString);
+          dateLabels.push(conversion.dateToFormattedString(date, true));
+        }
+        station.dateLabels = dateLabels;
 
-      let dates = [];
-      let dateLabels = [];
-      dates = stationStore.getAllReadingsOfType(stationId, 'date');
-      for (let dateString of dates) {
-        const date = new Date(dateString);
-        dateLabels.push(conversion.dateToFormattedString(date, true));
+        let displayCharts = (station.readings.length > 1);
+        let displayReadings = (station.readings.length > 0);
+        let displayWeatherCards = true;
+        if (station.readings.length == 0) {
+          displayWeatherCards = false;
+        }
+
+        const viewData = {
+          title: station.name + ' - WeatherTop',
+          station: station,
+          displayCharts: displayCharts,
+          displayReadings: displayReadings,
+          displayWeatherCards: displayWeatherCards
+        };
+        response.render('station', viewData);
+      } else {
+        response.redirect('/dashboard');
       }
-      station.dateLabels = dateLabels;
-
-      let displayCharts = (station.readings.length > 1);
-      let displayReadings = (station.readings.length > 0);
-      let displayWeatherCards = true;
-      if (station.readings.length == 0) {
-        displayWeatherCards = false;
-      }
-
-      const viewData = {
-        title: station.name + ' - WeatherTop',
-        station: station,
-        displayCharts: displayCharts,
-        displayReadings: displayReadings,
-        displayWeatherCards: displayWeatherCards
-      };
-      response.render('station', viewData);
     } else {
       response.redirect('/login');
     }
