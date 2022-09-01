@@ -35,21 +35,29 @@ const accounts = {
 
   settings(request, response) {
     const loggedInUser = userstore.getCurrentUser(request);
-    const viewData = {
-      title: 'Settings - WeatherTop',
-      firstName: loggedInUser.firstName,
-      lastName: loggedInUser.lastName
-    };
-    response.render('accountsettings', viewData);
+    if (loggedInUser) {
+      const viewData = {
+        title: 'Settings - WeatherTop',
+        firstName: loggedInUser.firstName,
+        lastName: loggedInUser.lastName
+      };
+      response.render('accountsettings', viewData);
+    } else {
+      response.redirect('/login');
+    }
   },
 
   authenticationSettings(request, response) {
     const loggedInUser = userstore.getCurrentUser(request);
-    const viewData = {
-      title: 'Settings - WeatherTop',
-      email: loggedInUser.email,
-    };
-    response.render('securitysettings', viewData);
+    if (loggedInUser) {
+      const viewData = {
+        title: 'Settings - WeatherTop',
+        email: loggedInUser.email,
+      };
+      response.render('securitysettings', viewData);
+    } else {
+      response.redirect('/login');
+    }
   },
 
   register(request, response) {

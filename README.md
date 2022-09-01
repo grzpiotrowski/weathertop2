@@ -14,7 +14,13 @@ https://grzegorz-weathertop2.glitch.me/
 * Charts for temperature, pressure and wind
 
 ## Deployment
-Rename .env_sample file to .env and put your Open Weather API key in place of YOUR_OPENWEATHER_API_KEY.
+    git clone https://github.com/grzpiotrowski/weathertop2.git
+    cd weathertop2
+    npm i
+
+In weathertop2 root directory rename .env_sample file to .env and put your Open Weather API key in place of YOUR_OPENWEATHER_API_KEY.
+
+    npm start
 
 ## Resources
 * Handlebars Helpers \
