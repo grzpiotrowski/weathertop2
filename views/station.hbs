@@ -27,137 +27,15 @@
   <div class="ui divider"></div>
   </section>
   {{#if displayCharts}}
-    <div class="ui top attached tabular menu">
-      <a class="item active" data-tab="first">Temperature</a>
-      <a class="item" data-tab="second">Wind</a>
-      <a class="item" data-tab="third">Pressure</a>
-    </div>
-    <div class="ui bottom attached tab segment active" data-tab="first">
-      <div class="ui segment" id="chartTemperature"></div>
-    </div>
-    <div class="ui bottom attached tab segment" data-tab="second">
-      <div class="ui segment" id="chartWind"></div>
-    </div>
-    <div class="ui bottom attached tab segment" data-tab="third">
-      <div class="ui segment" id="chartPressure"></div>
-    </div>
-
-    <script>
-      $('.menu .item').tab(
-        {
-          'onLoad': function() {
-            switch($('.item.active')[0].innerHTML) {
-              case "Temperature":
-                temperatureChart.draw(true);
-                break;
-              case "Wind":
-                windChart.draw(true);
-                break;
-              case "Pressure":
-                pressureChart.draw(true);
-                break;
-            }
-          },
-        });
-
-      const temperatureData = {
-        labels: [
-          {{#each station.dateLabels}}
-            "{{this}}",
-          {{/each}}
-        ],
-        datasets: [
-          {
-            name: "Temperature", type: "line",
-            values: [
-              {{#each station.tempReadings}}
-                {{this}},
-              {{/each}}
-            ]
-          }
-        ]
-      }
-
-      const windData = {
-        labels: [
-          {{#each station.dateLabels}}
-            "{{this}}",
-          {{/each}}
-        ],
-        datasets: [
-          {
-            name: "Wind Speed", type: "line",
-            values: [
-              {{#each station.readings}}
-                {{this.windSpeed}},
-              {{/each}}
-            ]
-          }
-        ]
-      }
-
-      const pressureData = {
-        labels: [
-          {{#each station.dateLabels}}
-            "{{this}}",
-          {{/each}}
-        ],
-        datasets: [
-          {
-            name: "Pressure", type: "line",
-            values: [
-              {{#each station.readings}}
-                {{this.pressure}},
-              {{/each}}
-            ]
-          }
-        ]
-      }
-
-      const temperatureChart = new frappe.Chart("#chartTemperature", {
-        title: "Temperature Trend",
-        data: temperatureData,
-        type: 'line',
-        lineOptions: {
-          regionFill: 1
-        },
-        height: 250,
-        colors: ['blue'],
-      });
-
-      const windChart = new frappe.Chart("#chartWind", {
-        title: "Wind Speed Trend",
-        data: windData,
-        type: 'line',
-        lineOptions: {
-          regionFill: 1
-        },
-        height: 250,
-        colors: ['green'],
-      });
-
-      const pressureChart = new frappe.Chart("#chartPressure", {
-        title: "Pressure Trend",
-        data: pressureData,
-        type: 'line',
-        lineOptions: {
-          regionFill: 1
-        },
-        height: 250,
-        colors: ['orange'],
-      });
-
-    </script>
+    {{> trend-charts}}
   {{/if}}
   {{#if displayReadings}}
     {{> reading-table readings=station.readings stationid=station.id}}
   {{/if}}
 
-
-
   {{> add-reading-form }}
 
-  <form class="ui stacked segment form" action="/station/{{station.id}}/addopenweatherreading" method="POST">
+  <form class="ui basic form" action="/station/{{station.id}}/addopenweatherreading" method="POST">
     <button class="ui green submit button">Add OpenWeather Reading</button>
   </form>
 

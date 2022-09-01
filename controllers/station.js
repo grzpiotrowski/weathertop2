@@ -19,13 +19,8 @@ const station = {
       if (loggedInUser.id === station.userid) {
         weatherAnalytics.updateWeather(station);
 
-        let tempReadings = [];
-        tempReadings = stationStore.getAllReadingsOfType(stationId, 'temperature');
-        station.tempReadings = tempReadings;
-
-        let dates = [];
         let dateLabels = [];
-        dates = stationStore.getAllReadingsOfType(stationId, 'date');
+        let dates = stationStore.getAllReadingsOfType(stationId, 'date');
         for (let dateString of dates) {
           const date = new Date(dateString);
           dateLabels.push(conversion.dateToFormattedString(date, true));
