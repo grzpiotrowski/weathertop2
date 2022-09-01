@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+var favicon = require('serve-favicon');
 const logger = require('./utils/logger');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -18,6 +19,7 @@ var comparison = helpers.comparison();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(fileUpload());
+app.use(favicon('public/images/favicon.ico'));
 app.engine(
   '.hbs',
   exphbs({

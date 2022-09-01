@@ -20,7 +20,7 @@ Rename .env_sample file to .env and put your Open Weather API key in place of YO
 * Handlebars Helpers \
   https://github.com/helpers/handlebars-helpers \
   https://github.com/helpers/handlebars-helpers#compare \
-  https://github.com/helpers/handlebars-helpers#append \
+  https://github.com/helpers/handlebars-helpers#append
 * Creating custom handlebars helpers \
   https://www.npmjs.com/package/express-handlebars#helpers \
   https://stackoverflow.com/a/44354612
@@ -60,3 +60,5 @@ that can create realistic images and art from a description in natural language.
 I was lucky enough to get the access to this amazing tool just when I was working on this project. \
 Link to DALL·E 2 website: \
 https://openai.com/dall-e-2/
+
+Favicon generated using: https://favicon.io/favicon-generator/
