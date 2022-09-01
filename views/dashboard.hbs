@@ -3,63 +3,8 @@
 <section class="ui segment">
   {{> station-list }}
 
-  <section class="ui segment">
-    <div id="map" style="width: 100%; height: 400px;"></div>
-  </section>
+  {{> station-map}}
 
   {{> add-station-form }}
-
-  <script>
-    var map = L.map('map').setView([53.449476, -7.5029786], 6);
-    var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    const stationCollection = [
-      {{#each stations}}
-        {
-          id: '{{this.id}}',
-          name: '{{this.name}}',
-          lat: {{this.lat}},
-          lon: {{this.lon}},
-          weather: '{{this.lastReading.codeString}}',
-          temperature: '{{this.lastReading.temperature}}',
-          pressure: '{{this.lastReading.pressure}}',
-          windSpeed: '{{this.lastReading.windSpeed}}'
-        },
-      {{/each}}
-    ];
-
-    var group = new L.featureGroup([]);
-    for (const station of stationCollection) {
-      var marker = L.marker([station.lat, station.lon]).addTo(map);
-      group.addLayer(marker);
-      station.marker = marker;
-      marker.bindPopup(`<a href="/station/${station.id}"><h3>${station.name}</h3></a>
-        <p><b>${station.weather}</b><br>
-        Temp: ${station.temperature} &#176;C<br>
-        Pressure: ${station.pressure} hPa<br>
-        Wind speed: ${station.windSpeed} km/h</p>`)
-    }
-
-    if (stationCollection.length > 0) {
-      map.fitBounds(group.getBounds());
-    }
-
-    map.on('click', function(e) {
-      var popLocation = e.latlng;
-      var addStationPopup = L.popup()
-        .setLatLng(popLocation)
-        .setContent(`{{> add-station-popup }}`)
-        .openOn(map);
-      var latitudeField = document.getElementById('popupLatitudeInput');
-      var longitudeField = document.getElementById('popupLongitudeInput');
-      latitudeField.value = popLocation.lat.toFixed(5);
-      longitudeField.value = popLocation.lng.toFixed(5);
-
-    });
-
-  </script>
 
 </section>
