@@ -64,24 +64,24 @@ const accounts = {
     const user = request.body;
 
     let errormessages = [];
-    if (userstore.isEmailTaken(request.body.email)) {
-      logger.info("Email already taken: " + request.body.email);
+    if (userstore.isEmailTaken(user.email)) {
+      logger.info("Email already taken: " + user.email);
       errormessages.push("Email already taken.");
     }
-    if (request.body.email === "") {
+    if (!user.email) {
       errormessages.push("Email is required.");
     }
-    if (request.body.password === "") {
+    if (!user.password) {
       errormessages.push("Password is required.");
     }
-    if (request.body.firstname === "") {
+    if (!user.firstname) {
       errormessages.push("First Name is required.");
     }
-    if (request.body.lastname === "") {
+    if (!user.lastname) {
       errormessages.push("Last Name is required.");
     }
 
-    if (errormessages.length === 0) {
+    if (!errormessages) {
       logger.info(`Registering new user: ${user.email}`);
       user.id = uuid.v1();
       userstore.addUser(user);
@@ -89,9 +89,9 @@ const accounts = {
     } else {
       const viewData = {
         title: "Signup - WeatherTop",
-        firstname: request.body.firstname,
-        lastname: request.body.lastname,
-        email: request.body.email,
+        firstname: user.firstname,
+        lastname: user.lastname,
+        email: user.email,
         errors: errormessages
       }
       response.render("signup", viewData);
@@ -101,7 +101,7 @@ const accounts = {
   authenticate(request, response) {
     let errormessages = [];
     const user = userstore.getUserByEmail(request.body.email);
-    if (user !== undefined && userstore.checkPassword(user, request.body.password)) {
+    if (!user && userstore.checkPassword(user, request.body.password)) {
       response.cookie('authToken', user.email);
       logger.info(`logging in ${user.email}`);
       response.redirect('/dashboard');

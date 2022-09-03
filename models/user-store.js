@@ -37,7 +37,7 @@ const userStore = {
   },
 
   isEmailTaken(email) {
-    if (this.store.findOneBy(this.collection, { email: email }) !== undefined) {
+    if (this.store.findOneBy(this.collection, { email: email })) {
       return true;
     } else {
       return false;
