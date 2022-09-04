@@ -81,7 +81,7 @@ const accounts = {
       errormessages.push("Last Name is required.");
     }
 
-    if (errormessages.length > 0) {
+    if (errormessages.length === 0) {
       logger.info(`Registering new user: ${user.email}`);
       user.id = uuid.v1();
       userstore.addUser(user);
