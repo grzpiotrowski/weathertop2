@@ -101,7 +101,7 @@ const accounts = {
   authenticate(request, response) {
     let errormessages = [];
     const user = userstore.getUserByEmail(request.body.email);
-    if (!user && userstore.checkPassword(user, request.body.password)) {
+    if (user && userstore.checkPassword(user, request.body.password)) {
       response.cookie('authToken', user.email);
       logger.info(`logging in ${user.email}`);
       response.redirect('/dashboard');
