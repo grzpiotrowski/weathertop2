@@ -1,17 +1,35 @@
 # WeatherTop2
 A web app to keep track of the weather data from WeatherTop devices.
-Allows members to add their own weather stations and readings.
+Allows members to add their own weather stations and readings,
+visualise the data on charts and view the stations on a map.
+
+The app was developed in the model/view/controller pattern 
+using expressjs framework and handlebars templating engine.
+[Fomantic-ui](https://fomantic-ui.com/) CSS framework has been used for styling.
+
 ### Deployed app
 https://grzegorz-weathertop2.glitch.me/
 
 ## Main features
-* Members registration/login
-* Adding/removing member's weather stations
-* Adding/removing weather readings
-* Weather dashboard, min/max reading, trends
-* Member can change personal details and password
-* Add reading from OpenWeather API
-* Charts for temperature, pressure and wind
+* User accounts, signup and login
+* Station latitude and longitude
+* Weather dashboard, latest reading with unit conversions
+* Min/max temperature, pressure and wind speed values for stations
+* Icons on station panel
+* Individual pages for each station
+* Add new station
+* Add new reading
+* Delete station
+* Delete reading
+* Temperature, wind and pressure trends arrows
+* Stations sorted alphabetically
+* Users can edit their personal details and password
+* Automatically add new reading using OpenWeather API
+* Station readings plotted on charts
+* Map view showing stations
+* Adding new stations through the map
+* Forms validation
+* Restricting access to other user's stations
 
 ## Deployment
     git clone https://github.com/grzpiotrowski/weathertop2.git
