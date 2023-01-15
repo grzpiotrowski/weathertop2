@@ -10,6 +10,9 @@ using expressjs framework and handlebars templating engine.
 ### Deployed app
 https://grzegorz-weathertop2.glitch.me/
 
+### Video presentation
+https://youtu.be/1vNQe_ej5CA
+
 ## Main features
 * User accounts, signup and login
 * Station latitude and longitude
